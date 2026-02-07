@@ -1,34 +1,45 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [accepted, setAccepted] = useState(false)
+  const [noPosition, setNoPosition] = useState({ x: 66, y: 50 })
+  const [isNoRunning, setIsNoRunning] = useState(false)
+
+  const moveNoButton = () => {
+    setIsNoRunning(true)
+    const x = Math.random() * 86 + 7
+    const y = Math.random() * 78 + 10
+    setNoPosition({ x, y })
+  }
+
+  if (accepted) {
+    return (
+      <main className="screen celebrate">
+        <h1>Yippie!</h1>
+      </main>
+    )
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <main className="screen question-screen">
+      <h1>Will you be my valentine?</h1>
+
+      <div className="actions">
+        <button className="btn yes fixed-yes" type="button" onClick={() => setAccepted(true)}>
+          Yes
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+        <button
+          className={`btn no ${isNoRunning ? 'evasive' : 'start'}`}
+          type="button"
+          style={isNoRunning ? { left: `${noPosition.x}%`, top: `${noPosition.y}%` } : undefined}
+          onClick={moveNoButton}
+        >
+          No
+        </button>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </main>
   )
 }
 

@@ -30,10 +30,17 @@ h1 {
   color: #812244;
 }
 
+.question-screen h1 {
+  position: relative;
+  z-index: 3;
+}
+
 .actions {
+  margin-top: 2.4rem;
   position: relative;
   width: min(32rem, 95vw);
-  height: 7.5rem;
+  height: 10.5rem;
+  z-index: 1;
 }
 
 .btn {
@@ -53,8 +60,8 @@ h1 {
 
 .fixed-yes {
   position: absolute;
-  left: 34%;
-  top: 50%;
+  left: 38%;
+  top: 64%;
   transform: translate(-50%, -50%);
 }
 
@@ -70,8 +77,8 @@ h1 {
 
 .no.start {
   position: absolute;
-  left: 66%;
-  top: 50%;
+  left: 62%;
+  top: 64%;
   transform: translate(-50%, -50%);
 }
 
@@ -87,4 +94,25 @@ h1 {
 .celebrate h1 {
   font-size: clamp(3rem, 8vw, 6.5rem);
   color: #fff;
+}
+
+.meanie {
+  background: linear-gradient(140deg, #ff8fb9 0%, #ffd27a 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.meanie h1 {
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  color: #fff;
+}
+
+.angry-penguin {
+  width: clamp(9rem, 26vw, 15rem);
+  height: auto;
+  margin-top: 0.75rem;
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.18);
 }
